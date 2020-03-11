@@ -1,0 +1,730 @@
+@import 'slick';
+@import 'slick-theme';
+
+//  ---------------------- FONTS --------------------------------------------------------
+// PTSans import google fonts
+
+@font-face {
+  font-family: "ProximaNova Semibold";
+  src: url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.eot);
+  src: url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.eot?#iefix) format("embedded-opentype"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.woff2) format("woff2"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.woff) format("woff"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.ttf) format("truetype"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.svg#wf) format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ProximaNova Bold";
+  src: url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.eot);
+  src: url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.eot?#iefix) format("embedded-opentype"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.woff2) format("woff2"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.woff) format("woff"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.ttf) format("truetype"),url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.svg#wf) format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+//  ---------------------- VARIBLES --------------------------------------------------------
+
+	// colors
+$white: #ffffff;
+$darkGray: #665f60;
+$darkGray1: #7d7a7c;
+$black: #000000;
+$purple: #9f9acf;
+$lightGray1: #ebebeb;
+$lightGray2: #e6e6e6;
+$lightGray3: #dbdbdb;
+
+	//variables width
+$w100: 100%;
+$slick-dot-size: 10px;
+$slick-dot-color-active: $white;
+$slick-dot-color: $white;
+
+//  ------------------------ MIXINS --------------------------------------------------------
+
+@mixin ptSansR {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+}
+
+@mixin ptSansB {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 700;
+}
+
+@mixin ptSansI {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@mixin h($property) {
+	height: $property;
+}
+
+@mixin fs($property) {
+	font-size: $property;
+}
+
+@mixin mgA {
+	margin: 0 auto;
+}
+
+@mixin w($property) {
+	width: $property;
+}
+
+@mixin bgCol($property) {
+	background-color: $property;
+}
+
+@mixin lH($property) {
+	line-height: $property;
+}
+
+@mixin ls($property) {
+	letter-spacing: $property;
+}
+
+@mixin br($property) {
+	border-radius: $property;
+}
+
+
+// ----------------------- styles ----------------------
+
+body {
+	overflow-x: hidden;
+}
+
+.head {
+	@include w($w100);
+	min-height: 1070px;
+	background: url('../img/bg_image.png') 50% 50% no-repeat;
+	
+	&__nav {
+		@include h(120px);
+		
+		& img {
+			@include w(54px);
+			@include h(72px);
+			margin-top: 35px;
+		}
+
+		&--ul {
+			@include fs(0);
+		}
+
+		&--a {
+			@include fs(24px);
+			font-family: "ProximaNova Semibold";
+			font-weight: 600;
+			color: $white;
+			@include lH(120.07px);
+			text-transform: uppercase;
+			padding-left: 30px;
+			
+			&:hover {
+				text-decoration: none;
+				color: $darkGray;
+			}
+		}
+
+		&--h1 {
+			@include fs(71.97px);
+			color:  #fefefb;
+			text-transform: uppercase;
+			font-family: "ProximaNova Bold";
+			transform: scaleY(1.0035);
+			padding-top: 285px;
+			line-height: 60.035px;
+		}
+
+		&--p {
+			color:  #fefdfd;
+			@include fs(29.99px);
+			@include ptSansI;
+			transform: scaleY(1.0035);
+			padding-top: 10px;
+		}
+	}
+}
+
+.sect {
+	min-height: 800px;
+	@include bgCol($lightGray1);
+	
+	&__cont {
+		padding-top: 125px;
+		
+		&--about {
+			@include w($w100);
+			@include h(555px);
+			background: url('../img/about_us.png') no-repeat;
+			
+			& img {
+				display: block;
+				padding-top: 75px;
+			}
+		}
+
+		&--h3 {
+			@include fs(35.94px);
+			font-family: "ProximaNova Semibold";
+			transform: scaleY(1.0015);
+			text-transform: uppercase;
+			color: #fefbfc;
+			line-height: 60.035px;
+			padding-top: 30px;
+		}
+		
+		&--img {
+			
+			&:hover {
+				
+			}
+		}
+
+		&--btn {
+			@include w(195px);
+			@include h(50px);
+			display: block;
+			box-sizing: border-box;
+			border: 1px solid $darkGray;
+			@include bgCol($lightGray1);
+			@include fs(20px);
+			@include ptSansI;
+			border-radius: 0;
+			margin-top: 80px;
+			margin-bottom: 30px;
+			display: block;
+			
+			&:hover {
+				border: none;
+				color: $lightGray1;
+				@include bgCol($darkGray);
+			}
+		}
+
+		&--p {
+			@include fs(20px);
+			color: $darkGray;
+			padding-top: 70px;
+		}
+
+		&--em {
+			@include ptSansI;
+		}
+
+		&--strong {
+			@include ptSansB;
+		}
+	}
+}
+
+.sect1 {
+	min-height: 800px;
+	@include bgCol($lightGray1);
+
+	&__cont {
+		
+		&--item1, &--item2, &--item3, &--item4 {
+			@include w($w100);
+			@include h(400px);
+			
+			& img {
+				display: block;
+				padding: 98px 0 30px 0;
+			}
+
+			&:hover {
+				@include bgCol(rgba($lightGray3, .6));
+			}
+		}
+
+		&--item1, &--item4 {
+			@include bgCol($lightGray3); 
+			
+			&:hover {
+				@include bgCol(rgba($lightGray3, .6));
+			}
+		}
+
+		&--h2 {
+			@include fs(23.97px);
+			text-align: center;
+			text-transform: uppercase;
+			transform: scaleY(1.0014);
+			color: $darkGray;
+		}
+
+		&--p {
+			@include fs(18px);
+			transform: scaleY(1.0022);
+			@include ptSansI;
+			text-align: center;
+			color: $darkGray;
+		}
+
+		&--h5 {
+			@include fs(35.94px);
+			text-align: center;
+			font-family: "ProximaNova Semibold";
+			text-transform: uppercase;
+			transform: scaleY(1.0014);
+			color: #fefcfe;
+			padding-bottom: 85px;
+		}
+
+		&--p1 {
+			@include fs(18px);
+			@include ptSansI;
+			text-align: center;
+			color: #fefcfe;
+		}
+
+		&--strong {
+			@include fs(18px);
+			@include ptSansB;
+			text-align: center;
+			color: #fefcfe;
+			margin-top: -20px;
+		}
+
+		&--items6 {
+			@include w($w100);
+			@include h(800px);
+			background: url('../img/service_img.png') no-repeat;
+			background-size: cover;
+			
+			
+			& img {
+				display: block;
+				padding: 116px 0 35px 0;
+			}
+		}
+	}
+}
+
+.aside {
+	background: url('../img/works_bg.png') 50% 50% no-repeat;
+	max-height: 1000px;
+	
+	&__cont {
+
+		&--img {
+			display: block;
+			padding: 50px 0 35px 0;
+		} 
+
+		&--h1 {
+			@include fs(36px);
+			font-family: "ProximaNova Semibold";
+			text-transform: uppercase;
+			color: #fefcfe;
+			padding-bottom: 65px;
+		}
+
+		&--slider {
+			max-width: 730px;
+			max-height: 500px;
+			background-size: cover;
+
+			& img {
+				display: block;
+			}
+		}
+
+		&--s {
+			
+		}
+
+		&--btn {
+			@include bgCol(inherit);
+			@include w(195px);
+			@include h(50px);
+			display: block;
+			box-sizing: border-box;
+			border: 1px solid $white;
+			@include fs(20px);
+			@include ptSansI;
+			border-radius: 0;
+			margin: 50px 0 60px 0;
+			
+			&:hover {
+				border: none;
+				color: $lightGray1;
+				@include bgCol($darkGray);
+			}
+		}
+
+		&--left, &--right {
+			margin-top: 200px;
+		}
+	} 
+}
+
+.aside1 {
+	@include bgCol($lightGray1);
+	min-height: 810px;
+	
+	&__cont {
+		
+		&--img {
+			display: block;
+			padding: 50px 0 28px 0;
+		}
+
+		&--h1 {
+			@include fs(35.94px);
+			font-family: "ProximaNova Semibold";
+			text-transform: uppercase;
+			color: $darkGray;
+			padding-bottom: 70px;
+			transform: scaleY(1.0015);
+		}
+
+		&--team {
+			@include w($w100);
+			max-height: 368px;
+			@include bgCol($white);
+			z-index: 1;
+			margin-top: 122px;
+			border-left: 15px solid $lightGray1;
+			border-right: 15px solid $lightGray1;
+		}
+
+		&--img1 {
+			display: block;
+			z-index: 5;
+			margin-top: -122px;
+		}
+
+		&--h2 {
+			@include fs(24px);
+			font-family: "ProximaNova Bold";
+			text-transform: uppercase;
+			color: $purple;
+			text-align: center;
+			padding: 30px 0 0 0;
+		}
+
+		&--p {
+			@include fs(24px);
+			@include ptSansI;
+			text-align: center;
+			color: $darkGray;
+		}
+
+		&--ul {
+			@include h(70px);
+			@include w($w100);
+			display: block;
+			@include bgCol($purple);
+			border-left: 15px solid $purple;
+			border-right: 15px solid $purple;
+			margin-bottom: 15px;
+		}
+
+		&--li {
+			@include w(32px);
+			@include h(32px);
+			margin-top: 19px;
+			
+		}
+	}
+}
+
+.sect2 {
+	background: url('../img/Map_google.png') 50% 0 no-repeat;
+	background-size: cover;
+	min-height: 900px;
+	margin-top: -30px;
+	
+	&__cont {
+		
+		& img {
+			display: block;
+			padding: 50px 0 22px 0;
+		}
+
+		&--h1 {
+			padding-bottom: 260px;
+			@include fs(36px);
+			font-family: "ProximaNova Bold";
+			text-align: center;
+			text-transform: uppercase;
+			color: $white;
+		}
+
+		&--input {
+			box-sizing: border-box;
+			@include h(56px);
+			border-radius: 4px;
+			@include bgCol(rgba($lightGray1, .5));	
+			color: $white;
+			@include fs(18px);
+			@include ptSansI;
+			padding-left: 25px;
+			margin: 0 -15px 15px 0;
+		}
+
+		
+		&--textarea {
+			box-sizing: border-box;
+			min-height: 200px;
+			border-radius: 4px;
+			@include bgCol(rgba($lightGray1, .5));
+			padding: 20px 0 0 25px;
+			color: $white;
+			@include fs(18px);
+			@include ptSansI;
+			margin-bottom: 35px
+		}
+
+		&--btn {
+			@include h(70px);
+			min-width: 293px;
+			@include bgCol($purple);
+			font-family: "ProximaNova Bold";
+			color: $white;
+			@include fs(20px);
+			text-align: center;
+			text-transform: uppercase;
+			display: block;
+			border-radius: 4px;
+			border-bottom: 4px solid rgba($black, .15);
+			
+			&:hover {
+				@include bgCol(rgba($purple, .7));
+				border-bottom: 4px solid rgba($black, .15);
+			}
+		}
+
+		&--address {
+			max-width: 300px;
+			max-height: 90px;
+			position: absolute;
+			margin-left: calc(100% - 90px);
+			
+			&:hover, &:active {
+				cursor: pointer;
+				transition: all .7s;
+				margin-left: calc(100% - 300px);
+			}
+		}
+
+		&--number {
+			max-width: 300px;
+			max-height: 90px;
+			position: absolute;
+			margin-left: calc(100% - 90px);
+			
+			&:hover, &:active {
+				cursor: pointer;
+				transition: all .7s;
+				margin-left: calc(100% - 300px);
+			}
+		}
+
+		&--home {
+			@include w(90px);
+			@include h(90px);
+			@include bgCol($purple);
+			padding: 27px 25px;
+			display: block;
+			margin-top: 220px;
+			float: right;
+		}
+
+		&--number1 {
+			@include w(90px);
+			@include h(90px);
+			@include bgCol($purple);
+			padding: 27px 33px;
+			display: block;
+			margin-top: 310px;
+			float: right;
+		}
+
+		&--home1 {
+			@include w(210px);
+			@include h(90px);
+			@include bgCol(rgba($lightGray1, .5));
+			margin: -63px 0 0 65px;
+		}
+
+		&--number2 {
+			@include w(210px);
+			@include h(90px);
+			@include bgCol(rgba($lightGray1, .5));
+			margin: -61px 0 0 57px;
+		}
+
+		&--p {
+			@include fs(18px);
+			@include ptSansR;
+			text-align: center;
+			color: $darkGray;
+			@include lH(25px);
+			padding-top: 10px;
+		}
+
+		&--p1 {
+			@include fs(18px);
+			@include ptSansR;
+			text-align: center;
+			color: $darkGray;
+			@include lH(25px);
+			padding-top: 33px;
+		}
+	}
+}
+
+.foot {
+	min-height: 185px;
+	@include w($w100);
+	@include bgCol($purple);
+	
+	&__cont {
+		padding-top: 75px;
+		
+		&--p {
+			@include fs(18px);
+			@include ptSansR;
+			text-align: center;
+			color: $white;
+		}
+
+		&--ul {
+			display: block;
+		}
+
+		&--em {
+			@include fs(18px);
+			@include ptSansB;
+			text-align: center;
+			color: $white;
+			transform: scaleX(1.0005);
+		}
+	}
+}
+
+.form {
+	display: block;
+}
+
+.slider__arrow--right, .slider__arrow--left {
+	margin-top: 20%;
+	
+	&:hover img {
+		cursor: pointer;
+		transform: scale(1.2);
+	}
+}
+
+
+.up__button {
+	@include w(84px);
+	@include h(84px);
+	@include bgCol($purple);
+  	position: fixed;
+  	padding: 27px 0 0 24px;
+  	bottom: 25px;
+  	right: 25px;
+  	cursor: pointer;
+  	opacity: 0;
+  	border-radius: 50%;
+  
+  &:hover {
+	@include bgCol(rgba($purple, .7));
+  }
+}
+
+.slider {
+	
+	& .slick-dots {
+		transform: translateY(65px);
+		margin-bottom: 20px;
+	}
+}
+
+.slick-dots li button:before {
+ font-family: 'slick';
+  font-size: 50px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '◦'; /* <-- Вот этот символ */
+  text-align: center;
+  opacity: .25;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  &.slick-active button:before {
+            color: $white;
+            opacity: 1;
+        }
+}
+
+
+@media screen and (max-width: 480px) {
+	
+ body {
+ 	overflow-x: hidden;	
+ 	width: 100%;
+ 	margin: 0 auto;
+ }
+
+  .head {
+  	&__nav {
+  		&--h1 {
+  			@include fs(36px);
+  		}
+
+  		&--ul {
+  			overflow: hidden;
+  		}
+
+  		&--p {
+  			@include fs(18px);
+  		}
+  	}
+  }
+
+  .sect2 {
+	&__cont {
+		&--address {
+			margin-left: calc(100% - 300px);
+		}
+
+		&--number {
+			margin-left: calc(100% - 300px);
+		}
+	}
+  }
+
+  .up__button {
+  	display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sect2 {
+	&__cont {
+		&--address {
+			margin-left: calc(100% - 300px);
+		}
+
+		&--number {
+			margin-left: calc(100% - 300px);
+		}
+	}
+  }
+
+ .up__button {
+  	display: none;
+  }
+}
